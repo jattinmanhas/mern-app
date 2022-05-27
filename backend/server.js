@@ -3,7 +3,7 @@ const express = require('express');
 const colors = require('colors')
 const dotenv = require('dotenv').config();
 const {errorHandler} = require('./middleware/errorMiddleware')
-const port = process.env.PORT ||  5000;
+const port = process.env.PORT ||  '5000';
 const connectDb = require('./config/db')
 const cors = require('cors')
 
@@ -34,6 +34,6 @@ else{
 
 app.use(errorHandler)
 
-app.listen(port, ()=>{
+app.listen(process.env.PORT || 5000, ()=>{
     console.log(`Server started on Port: ${port}`)
 })
